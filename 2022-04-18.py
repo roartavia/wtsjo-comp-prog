@@ -55,5 +55,23 @@ def maxSubArrayVictor(nums):
     return biggest
 
 
+def maxSubArrayNatan(nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        max_temp = 0
+        max_current = -999999
+        leng = len(nums)
+        
+        for i in range(leng):
+            max_temp = max(nums[i], nums[i] + max_temp)
+            
+            if(max_temp > max_current):
+                max_current = max_temp
+                
+        return max_current
+
+
 nums = [5, 4, -1, 7, 8]
 print(maxSubArrayRodolfo(nums))
