@@ -32,3 +32,6 @@ def lengthOfLastWordVictor(s: str) -> int:
             break
         answer += stripped[i]
     return len(answer)
+
+def lengthOfLastWordJuanCarlos(s: str) -> int:
+    return len(s.split()[-1])
