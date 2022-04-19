@@ -72,6 +72,20 @@ def maxSubArrayNatan(nums):
                 
         return max_current
 
+def maxSubArrayJuanCarlos(nums):
+    max_sum = nums[0]
+    new_max = 0
+        
+    if len(nums) > 0:
+        for number in nums:
+            new_max = max(number, new_max + number)
+            max_sum = max(new_max, max_sum)
+    else:  
+        # if the array is empty return 0
+        max_sum = 0
+        
+    return max_sum
+
 
 nums = [5, 4, -1, 7, 8]
 print(maxSubArrayRodolfo(nums))
