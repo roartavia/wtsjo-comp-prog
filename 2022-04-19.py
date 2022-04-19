@@ -21,3 +21,14 @@ def lengthOfLastWordRodolfo(s: str) -> int:
         latestIndex -= 1
 
     return myLenght
+
+
+def lengthOfLastWordVictor(s: str) -> int:
+    stripped = s.strip()
+    answer = ""
+    for i in range(len(stripped)-1, -1, -1):
+        char = stripped[i]
+        if char == " ":
+            break
+        answer += stripped[i]
+    return len(answer)
