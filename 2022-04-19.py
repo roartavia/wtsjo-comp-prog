@@ -35,3 +35,6 @@ def lengthOfLastWordVictor(s: str) -> int:
 
 def lengthOfLastWordJuanCarlos(s: str) -> int:
     return len(s.split()[-1])
+
+def lengthOfLastWordSebas(s):
+        return len(s.split()[-1])
