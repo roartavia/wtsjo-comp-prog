@@ -52,7 +52,10 @@ class Solution:
                 digits.insert(0, numTemp%10)
         return digits
 
+    def plusOneJuanCarlos(self, digits):
+        return list(str(int(''.join(str(digit) for digit in digits)) + 1))
+
 
 sol = Solution()
-response = sol.plusOneRodolfo([9, 9])
+response = sol.plusOneJuanCarlos([9, 9])
 print(response)
