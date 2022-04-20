@@ -38,6 +38,20 @@ class Solution:
             return [remainder]+answer
         return answer
 
+    def plusOneSebas(self, digits):
+        i = len(digits)-1
+        lastElement = digits[i]
+        numTemp = lastElement + 1
+        digits[i] = numTemp % 10
+        while numTemp >= 10:
+            i = i - 1
+            numTemp = digits[i] + 1
+            if i >= 0:
+                digits[i] = numTemp % 10
+            else:
+                digits.insert(0, numTemp%10)
+        return digits
+
 
 sol = Solution()
 response = sol.plusOneRodolfo([9, 9])
