@@ -126,8 +126,39 @@ class Solution:
             
             return binResult
 
+            
+    def addBinarySebas(self, a: str, b: str) -> str:
+        remainder = 0
+        iA = len(a)-1
+        iB = len(b)-1
+        res = ""
+        while iA >= 0 or iB >= 0 or remainder >= 0:
+            if iA >= 0:
+                num1 = a[iA]
+            else:
+                num1 = 0
+                
+            if iB >= 0:
+                num2 = b[iB]
+            else:
+                num2 = 0
+            sum = int(num1) + int(num2) + remainder
+            if sum >= 2:
+                remainder = 1
+            else:
+                remainder = 0
+                
+            res = str(sum%2) + res
+                
+            if iA <= 0 and iB <= 0 and remainder == 0:
+                remainder = -1
+            iA -= 1
+            iB -= 1
+        return res
+
+
 sol = Solution()
 print(sol.addBinaryRodolfo("1010", "1011"))
 print(sol.addBinaryCheating("1010", "1011"))
 print(sol.addBinaryVictor("1010", "1011"))
-print(sol.addBinaryJuanCa("1010", "1011"))
+print(sol.addBinaryJuanCaMathError("1010", "1011"))
