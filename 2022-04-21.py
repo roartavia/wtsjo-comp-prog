@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/add-binary
 
 #!/usr/bin/env python
+import math
 
 class Solution:
     # Doesn't make sense to do this solution because the idea is to use problem solving thinking
@@ -95,8 +96,38 @@ class Solution:
             answer = str(remainder) + answer
         return answer
 
+    def addBinaryJuanCaMathError(self, a: str, b: str) -> str:
+            firstBinArray = list(a)
+            secondBinArray = list(b)
+            
+            lenOne = len(firstBinArray) - 1
+            lenTwo = len(secondBinArray) - 1
+            
+            intOne = 0
+            intTwo = 0
+            quotient = 1
+            binResult = ""
+            
+            for bin in firstBinArray:
+                intOne += int(bin)*(math.pow(2, (lenOne))) 
+                lenOne -= 1
+                
+            for bin in secondBinArray:
+                intTwo += int(bin)*(math.pow(2, (lenTwo)))
+                lenTwo -= 1
+                                
+            intResult = intOne + intTwo
+                    
+            while quotient != 0:
+                quotient = int(intResult // 2)
+                remainder = int(intResult % 2)
+                binResult = str(remainder) + binResult
+                intResult = quotient
+            
+            return binResult
 
 sol = Solution()
 print(sol.addBinaryRodolfo("1010", "1011"))
 print(sol.addBinaryCheating("1010", "1011"))
 print(sol.addBinaryVictor("1010", "1011"))
+print(sol.addBinaryJuanCa("1010", "1011"))
