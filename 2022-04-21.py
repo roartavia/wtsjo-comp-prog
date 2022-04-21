@@ -156,9 +156,49 @@ class Solution:
             iB -= 1
         return res
 
+    def addBinaryJuanCaTwo(self, a: str, b: str) -> str:
+            firstBinArray = list(a)
+            secondBinArray = list(b)
+            result = ""
+            carryDigit = 0
+            
+            if len(firstBinArray) > len(secondBinArray):
+                maxLen = len(firstBinArray)
+                maxBin = firstBinArray
+                minBin = secondBinArray
+            else:
+                maxLen = len(secondBinArray)
+                maxBin = secondBinArray
+                minBin = firstBinArray 
+            
+            while maxLen > len(minBin):
+                minBin.insert(0, '0')
+            
+            index = maxLen - 1
+            for i in range(maxLen):
+                tempDigit = carryDigit
+                if maxBin[index] == "1":
+                    tempDigit += 1
+                    
+                if minBin[index] == "1":
+                    tempDigit += 1 
+                index -= 1
+
+                if tempDigit % 2 == 1:
+                    result = '1' + result
+                else:
+                    result = '0' + result
+
+                carryDigit = 1 if tempDigit >= 2 else 0
+                    
+            if carryDigit != 0:
+                result = "1" + result
+            
+            return result
 
 sol = Solution()
 print(sol.addBinaryRodolfo("1010", "1011"))
 print(sol.addBinaryCheating("1010", "1011"))
 print(sol.addBinaryVictor("1010", "1011"))
 print(sol.addBinaryJuanCaMathError("1010", "1011"))
+print(sol.addBinaryJuanCaTwo("1010", "1011"))
